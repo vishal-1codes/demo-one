@@ -1,0 +1,27 @@
+<p>one works!</p>
+<button (click)="getProductFun()">Get Product</button>
+
+<form  [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>first name</label>
+    <input  formControlName="firstname">
+  </div>
+  <div>
+    <button type="submit">Submit</button>
+  </div>
+</form>
+
+<!-- <div>{{input$ | async}}</div> -->
+
+<div *ngIf="input$">
+    <ul *ngFor="let i of input$ | async">
+        <li>{{i}}</li>
+    </ul>
+</div>
+
+<!-- ? if its is null dont do anything-->
+<!-- <div *ngIf="input$">
+    <ul *ngFor="let i of (input$ | async)?.value">
+        <li>{{i}}</li>
+    </ul>
+</div> -->
