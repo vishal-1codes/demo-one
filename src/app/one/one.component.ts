@@ -1,4 +1,4 @@
-import { Component,OnInit } from '@angular/core';
+import { Component,Input,OnInit } from '@angular/core';
 import { GlobalService } from '../services/global.service';
 import { Observable,Subscription, debounceTime, distinctUntilChanged, startWith, switchMap, tap } from 'rxjs';
 
@@ -11,6 +11,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./one.component.scss']
 })
 export class OneComponent implements OnInit{
+    //get parameter pass name
+    @Input() public parameter?:string;
 
 contactForm = new FormGroup({
   firstname: new FormControl()
@@ -54,6 +56,12 @@ contactForm = new FormGroup({
     switchMap(name=>this.globalService.getPublic(name ?? ''))
 
     )
+
+
+  
+
+
+
 
 
 }

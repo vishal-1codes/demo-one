@@ -19,9 +19,22 @@
     </ul>
 </div>
 
-<!-- ? if its is null dont do anything-->
-<!-- <div *ngIf="input$">
-    <ul *ngFor="let i of (input$ | async)?.value">
+<!-- ? meaning is if its is null dont do anything-->
+<div *ngIf="{people : input$ | async} as vm ">
+    <!-- <ul *ngFor="let i of vm.people.value">
         <li>{{i}}</li>
-    </ul>
-</div> -->
+    </ul> -->
+    <!-- <ul *ngFor="let i of (input$ | async)?.value">
+        <li>{{i}}</li>
+    </ul> -->
+</div>
+
+
+<!--here we get response if not get response then show ng-contain with loading-->
+<!-- <div *ngIf="input$; else loading">
+
+</div>
+<ng-template #loading>
+    <p>Loading...</p>
+</ng-template> -->
+
