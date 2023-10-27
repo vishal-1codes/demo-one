@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable,of } from 'rxjs';
+import { BehaviorSubject, Observable,of } from 'rxjs';
 
 //other language using interface
 export interface ODataResponse{
@@ -11,6 +11,11 @@ export interface ODataResponse{
   providedIn: 'root'
 })
 export class GlobalService {
+
+  
+  count = new BehaviorSubject<any>(0)
+
+  obj=new BehaviorSubject<Object>({name:'vishal',surname:'pawar'})
 
   baseurl:any;
 
@@ -43,5 +48,9 @@ export class GlobalService {
   public getPublicTwo2(name?:string): Observable<ODataResponse>{
     return this.httpClient.get<ODataResponse>(`${this.baseurl}/people`);
   }
+
+
+  // rxjs starting
+
 
 }
